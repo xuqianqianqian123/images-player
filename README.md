@@ -14,6 +14,6 @@ show函数是核心函数，实现图片的展示和切换<br>
 使用onmouseover事件实现当鼠标移动到某一张图片上的时候展示指定图片
 autoPlay函数实现图片的自动播放，使用setInterval进行计时，onmouseover时用clearInterval停止计时，鼠标移走触发onmouseout时继续自动播放
 ## 目录结构描述
-├── Readme.md // help
-├── index.html
+├── Readme.md // help<br>
+├── index.html<br>
 ├── vue.js
