@@ -1,7 +1,13 @@
 <!DOCTYPE html>
     <html>
         <head>
+            <meta charset="UTF-8" />
             <title>分享一些喜欢的照片</title>
+            <script type="text/javascript" src="vue.js"></script>
+            <!-- 引入样式 -->
+            <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+            <!-- 引入组件库 -->
+            <script src="https://unpkg.com/element-ui/lib/index.js"></script>
             <style>
                 body, div, ul, li {
                     margin: 0;
@@ -68,9 +74,6 @@
                     font-weight: 700;
                     background: #f60
                 }
-                #modeBtn{
-                    background-color: #f4d2cb;
-                }
             </style>
 
         </head>
@@ -79,7 +82,33 @@
             <h2>
                 分享一些照片
             </h2>
-            <button id="modeBtn">切换深色</button>
+            <div id="app">
+                <el-button v-on:click="change" id="modeBtn">双击切换深色</el-button>
+            </div>
+            <script>
+                var app = new Vue({
+                    el:"#app",
+                    methods:{
+                        change:function(){
+                        //切换深浅主题
+                        const Btn = document.getElementById('modeBtn');
+                            Btn.addEventListener('click', (e) => {
+                                const body = document.body;
+                                if(e.target.innerHTML === '双击切换深色'){
+                                    body.style.backgroundColor = 'black';
+                                    body.style.color = 'white';
+                                    e.target.innerHTML = '双击切换浅色';
+                                }
+                                else{
+                                    body.style.backgroundColor = 'white';
+                                    body.style.color = 'black';
+                                    e.target.innerHTML = '双击切换深色';
+                                }
+                            })
+                        }
+                    }
+                })
+            </script>
             <h4>
                 里面有最近看的很喜欢的电影星际穿越的绝美宇宙，平时课上无聊画的简笔，还有一些吃吃喝喝
             </h4>
@@ -164,21 +193,5 @@
                 box.onmouseout=function(){
                     autoPlay();
                 };
-
-                //切换深浅主题
-                const Btn = document.getElementById('modeBtn');
-                    Btn.addEventListener('click', (e) => {
-                        const body = document.body;
-                        if(e.target.innerHTML === '切换深色'){
-                            body.style.backgroundColor = 'black';
-                            body.style.color = 'white';
-                            e.target.innerHTML = '切换浅色';
-                        }
-                        else{
-                            body.style.backgroundColor = 'white';
-                            body.style.color = 'black';
-                            e.target.innerHTML = '切换深色';
-                        }
-                    })
         </script>
     </html>
